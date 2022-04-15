@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SEO from '../../utils/seo';
+import Nav from '../nav/nav';
 
 function Layout({ seo, children }) {
   return (
     <>
       <SEO seo={seo} />
+      <Nav />
       <main>
         {children}
       </main>
