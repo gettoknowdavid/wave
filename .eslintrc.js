@@ -16,11 +16,14 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: [
-    'react',
+    'react', 'baseui',
   ],
   rules: {
     'react/jsx-filename-extension': 'off',
     'react/jsx-props-no-spreading': 'off',
     'no-param-reassign': 'off',
+    'baseui/deprecated-theme-api': 'warn',
+    'baseui/deprecated-component-api': 'warn',
+    'baseui/no-deep-imports': 'warn',
   },
 };
