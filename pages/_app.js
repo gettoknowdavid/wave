@@ -4,15 +4,13 @@ import { Provider as StyletronProvider } from 'styletron-react';
 import { BaseProvider, LightTheme } from 'baseui';
 import styletron from '../styletron';
 import '../styles/globals.css';
-import Layout from '../components/layout/layout';
 
 function WaveApp({ Component, pageProps }) {
+  const getLayout = Component.getLayout || ((page) => page);
   return (
     <StyletronProvider value={styletron}>
       <BaseProvider theme={LightTheme}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        {getLayout(<Component {...pageProps} />)}
       </BaseProvider>
     </StyletronProvider>
   );

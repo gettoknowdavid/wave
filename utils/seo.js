@@ -1,8 +1,10 @@
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 
-function SEO({ title, description }) {
+function SEO({ seo }) {
+  const { title, description } = seo;
   const appTitle = title === null ? `${description}` : `${title} • ${description}`;
 
   return (
@@ -26,13 +28,16 @@ function SEO({ title, description }) {
 }
 
 SEO.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
+  seo: PropTypes.object,
+
 };
 
 SEO.defaultProps = {
-  title: 'Wave',
-  description: '',
+  seo: {
+    title: 'Wave',
+    description: '',
+  },
+
 };
 
 export default SEO;

@@ -1,24 +1,26 @@
 import React from 'react';
-import Head from 'next/head';
 import PropTypes from 'prop-types';
+import SEO from '../../utils/seo';
 
-function Layout({ children }) {
+function Layout({ seo, children }) {
   return (
     <>
-      <Head>
-        <title>Wave by David</title>
-      </Head>
-      <body>
-        <main>
-          {children}
-        </main>
-      </body>
+      <SEO seo={seo} />
+      <main>
+        {children}
+      </main>
     </>
   );
 }
 
 Layout.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  seo: PropTypes.object,
   children: PropTypes.node.isRequired,
+};
+
+Layout.defaultProps = {
+  seo: {},
 };
 
 export default Layout;
