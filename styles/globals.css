@@ -11,6 +11,8 @@ body {
   margin: 0;
   font-size: 12px;
   font-family: 'Poppins', sans-serif;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 @media screen and (min-width: 280px) {
@@ -28,6 +30,7 @@ body {
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
+  display: none;
 }
 
 ::-webkit-scrollbar-track {

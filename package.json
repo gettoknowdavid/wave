@@ -10,10 +10,14 @@
   },
   "dependencies": {
     "baseui": "^11.0.0",
+    "gsap": "^3.10.3",
     "next": "12.1.5",
     "prop-types": "^15.8.1",
     "react": "18.0.0",
     "react-dom": "18.0.0",
+    "react-sticky": "^6.0.3",
+    "react-sticky-el": "^2.0.9",
+    "react-sticky-nav": "^4.0.6",
     "sass": "^1.50.0",
     "styletron-engine-atomic": "^1.4.8",
     "styletron-react": "^6.0.2"

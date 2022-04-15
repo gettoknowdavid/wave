@@ -5,6 +5,7 @@ module.exports = {
     node: true,
   },
   extends: [
+    'plugin:@next/next/recommended',
     'plugin:react/recommended',
     'airbnb',
   ],
@@ -21,6 +22,7 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'import/prefer-default-export': 'off',
     'no-param-reassign': 'off',
     'baseui/deprecated-theme-api': 'warn',
     'baseui/deprecated-component-api': 'warn',
