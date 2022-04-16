@@ -1,6 +1,7 @@
+/* eslint-disable */
 import React from 'react';
 import Document, {
-  Html, Head, Main, NextScript,
+  Head, Html, Main, NextScript,
 } from 'next/document';
 import { Provider as StyletronProvider } from 'styletron-react';
 import styletron from '../styletron';

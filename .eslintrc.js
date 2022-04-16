@@ -27,5 +27,10 @@ module.exports = {
     'baseui/deprecated-theme-api': 'warn',
     'baseui/deprecated-component-api': 'warn',
     'baseui/no-deep-imports': 'warn',
+    'jsx-a11y/anchor-is-valid': ['error', {
+      components: ['Link'],
+      specialLink: ['hrefLeft', 'hrefRight'],
+      aspects: ['invalidHref', 'preferButton'],
+    }],
   },
 };

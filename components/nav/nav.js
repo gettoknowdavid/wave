@@ -5,53 +5,87 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { StyledActionItem, StyledNavItem } from './styled-components';
 
+const NAV_LIST = [
+  { id: '0', title: 'Headphones', slug: '/headphones' },
+  { id: '1', title: 'Speakers', slug: '/speakers' },
+  { id: '2', title: 'Microphones', slug: '/microphones' },
+];
+
 function Nav() {
   const [css, theme] = useStyletron();
   const { pathname } = useRouter();
 
-  const onEnter = ({ currentTarget }) => {
+  const onLogoEnter = ({ currentTarget }) => {
     gsap.to(currentTarget, { letterSpacing: '0.8rem', fontWeight: 800 });
   };
 
-  const onLeave = ({ currentTarget }) => {
+  const onLogoLeave = ({ currentTarget }) => {
     gsap.to(currentTarget, { letterSpacing: 0, fontWeight: 700 });
   };
 
+  const onLinkEnter = ({ currentTarget }) => gsap.to(currentTarget, { paddingBottom: '2.8rem' });
+
+  const onLinkLeave = ({ currentTarget }) => gsap.to(currentTarget, { paddingBottom: '1.4rem' });
+
+  const el = React.useRef();
+  const q = gsap.utils.selector(el);
+  const timeline = gsap.timeline();
+
+  React.useEffect(() => {
+    timeline.to(q('.nav-item'), {
+      height: pathname === '/' ? '25rem' : '8.333rem',
+      transformOrigin: 'top',
+      stagger: 0.3,
+    });
+
+    for (let i = 0; i < NAV_LIST.length; i += 1) {
+      if (pathname === NAV_LIST[i].slug) {
+        gsap.to(q(`.${NAV_LIST[i].title}-link`), { paddingBottom: '2.8rem' });
+        gsap.to(q(`.${NAV_LIST[i].title}-link-a`), { color: theme.colors.mono600 });
+      } else {
+        gsap.to(q(`.${NAV_LIST[i].title}-link`), { paddingBottom: '1.4rem' });
+        gsap.to(q(`.${NAV_LIST[i].title}-link-a`), { color: theme.colors.mono900 });
+      }
+    }
+  }, [pathname, NAV_LIST]);
+
   return (
     <header
+      ref={el}
       className={css({
         display: 'flex',
-        alignItems: 'flex-end',
-        height: pathname === '/' ? '25rem' : '8.333rem',
+        alignItems: 'flex-start',
         width: '100%',
-        backgroundColor: 'rgba(225,225,225, 0.7)',
-        borderBottomWidth: '0.208rem',
-        borderBottomStyle: 'solid',
-        borderBottomColor: theme.colors.mono400,
-        WebkitTransition: 'height .5s, line-height .5s',
-        transition: 'height .5s, line-height .5s',
         position: 'sticky',
         top: 0,
       })}
     >
-      <ul className={css({
-        margin: 0,
-        padding: 0,
-        maxWidth: '40vw',
-        height: '100%',
-        width: '100%',
-        display: 'flex',
-        alignItems: 'flex-end',
-        justifyContent: 'space-between',
-        borderRightWidth: '0.208rem',
-        borderRightStyle: 'solid',
-        borderRightColor: theme.colors.mono400,
-        position: 'relative',
-      })}
+      <ul
+        className="nav-item"
+        style={{
+          margin: 0,
+          padding: 0,
+          maxWidth: '40vw',
+          width: '100%',
+          display: 'flex',
+          alignItems: 'flex-start',
+          justifyContent: 'space-between',
+          borderLeftWidth: '0.104rem',
+          borderLeftStyle: 'solid',
+          borderLeftColor: theme.colors.mono400,
+          borderRightWidth: '0.104rem',
+          borderRightStyle: 'solid',
+          borderRightColor: theme.colors.mono400,
+          position: 'relative',
+          backgroundColor: theme.colors.mono100,
+          borderBottomWidth: '0.208rem',
+          borderBottomStyle: 'solid',
+          borderBottomColor: theme.colors.mono400,
+        }}
       >
         <span
-          onMouseEnter={onEnter}
-          onMouseLeave={onLeave}
+          onMouseEnter={onLogoEnter}
+          onMouseLeave={onLogoLeave}
           className={css({
             position: 'absolute',
             top: 0,
@@ -65,11 +99,23 @@ function Nav() {
             cursor: 'pointer',
           })}
         >
-          <Link href="/"><a href="/">Wave</a></Link>
+          <Link href="/"><a href="passHref">Wave</a></Link>
         </span>
-        <StyledActionItem><a href="/">menu</a></StyledActionItem>
-        <StyledActionItem><a href="/">search</a></StyledActionItem>
-        <StyledActionItem><a href="/">cart</a></StyledActionItem>
+        <StyledActionItem>
+          <Link href="/">
+            <a href="passHref">menu</a>
+          </Link>
+        </StyledActionItem>
+        <StyledActionItem>
+          <Link href="/">
+            <a href="passHref">search</a>
+          </Link>
+        </StyledActionItem>
+        <StyledActionItem>
+          <Link href="/">
+            <a href="passHref">cart</a>
+          </Link>
+        </StyledActionItem>
       </ul>
       <ul className={css({
         margin: 0,
@@ -77,25 +123,21 @@ function Nav() {
         height: '100%',
         width: '100%',
         display: 'flex',
-        alignItems: 'flex-end',
+        alignItems: 'flex-start',
         justifyContent: 'space-between',
       })}
       >
-        <StyledNavItem>
-          <Link href="/headphones">
-            <a href="/headphones">headphones</a>
+        {NAV_LIST.map((item) => (
+          <Link href={item.slug} key={item.id} passHref>
+            <StyledNavItem
+              className={`nav-item ${item.title}-link`}
+              onMouseEnter={pathname === item.slug ? () => {} : onLinkEnter}
+              onMouseLeave={pathname === item.slug ? () => {} : onLinkLeave}
+            >
+              <a href="passHref" className={`${item.title}-link-a`}>{item.title}</a>
+            </StyledNavItem>
           </Link>
-        </StyledNavItem>
-        <StyledNavItem>
-          <Link href="/speakers">
-            <a href="/speakers">speakers</a>
-          </Link>
-        </StyledNavItem>
-        <StyledNavItem>
-          <Link href="/microphones">
-            <a href="/microphones">microphones</a>
-          </Link>
-        </StyledNavItem>
+        ))}
       </ul>
     </header>
   );
