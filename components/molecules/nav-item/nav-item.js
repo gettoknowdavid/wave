@@ -1,7 +1,4 @@
-/* eslint-disable react/forbid-prop-types,
-no-return-assign,react/react-in-jsx-scope,
-@next/next/no-img-element */
-
+/* eslint-disable @next/next/no-img-element,no-return-assign,react/forbid-prop-types */
 import React from 'react';
 import { useStyletron } from 'baseui';
 import { useRouter } from 'next/router';
@@ -26,7 +23,7 @@ function NavItem({ item, height }) {
     } else {
       gsap.to(`.${item.title}`, { paddingBottom: '1.4rem', color: theme.colors.mono900 });
     }
-  }, [pathname, isCurrent]);
+  });
 
   const onLinkEnter = () => {
     gsap.to(`.${item.title}`, { paddingBottom: '2.8rem' });

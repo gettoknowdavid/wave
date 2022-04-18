@@ -20,7 +20,7 @@ function Header() {
       duration: 0.5,
       stagger: { each: 0.2, ease: 'sine.inOut', yoyo: true },
     });
-  }, [pathname]);
+  }, [pathname, isHome]);
 
   return (
     <StyledHeader>
