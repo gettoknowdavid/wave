@@ -30,27 +30,19 @@ function ActionItem({ item }) {
   };
 
   return (
-    <StyledActionItem>
-      <div
-        role="button"
-        tabIndex={0}
-        onKeyDown={goToAction}
-        onClick={goToAction}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-        ref={(e) => (item.refId = e)}
-        data-value={item.refId}
-        className={item.title}
-        style={{
-          height: '100%',
-          width: '100%',
-          display: 'flex',
-          alignItems: 'flex-end',
-          paddingBottom: '1.4rem',
-          paddingLeft: '1.333rem',
-        }}
-      >
+    <StyledActionItem
+      className={item.title}
+      onClick={goToAction}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      <div style={{ display: 'flex' }}>
         {item.title}
+        {item.title === 'Cart' ? (
+          <sup style={{ fontSize: '10px', alignSelf: 'flex-start', marginLeft: '4px' }}>
+            3
+          </sup>
+        ) : null}
       </div>
     </StyledActionItem>
   );

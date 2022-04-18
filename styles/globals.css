@@ -67,6 +67,8 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+
+sup {
+  vertical-align: super;
+  font-size: smaller;
 }
