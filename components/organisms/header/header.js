@@ -2,11 +2,10 @@
 import React from 'react';
 import { gsap } from 'gsap';
 import { useRouter } from 'next/router';
-import NavItem from '../../molecules/nav-item/nav-item';
-import { NAV_LIST } from '../../../lib/nav-list';
 import ActionList from '../action-list/action-list';
 import { StyledHeader, StyledHeaderList } from './styled-components';
 import Logo from '../../atoms/logo/logo';
+import NavList from '../nav-list/nav-list';
 
 function Header() {
   const router = useRouter();
@@ -28,9 +27,7 @@ function Header() {
       <Logo />
       <StyledHeaderList ref={nl} className="nav-item">
         <ActionList />
-        {NAV_LIST.filter((item) => !item.isAction).map((item) => (
-          <NavItem key={item.id} height="100%" item={item} />
-        ))}
+        <NavList />
       </StyledHeaderList>
     </StyledHeader>
   );
