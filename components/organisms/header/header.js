@@ -4,7 +4,6 @@ import { useStyletron } from 'baseui';
 import { gsap } from 'gsap';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { StyledActionItem } from './styled-components';
 import NavItem from '../../molecules/nav-item/nav-item';
 import { NAV_LIST } from '../../../lib/nav-list';
 import ActionList from '../action-list/action-list';

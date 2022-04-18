@@ -26,7 +26,7 @@ function NavItem({ item, height }) {
     } else {
       gsap.to(`.${item.title}`, { paddingBottom: '1.4rem', color: theme.colors.mono900 });
     }
-  }, [pathname, isHome]);
+  }, [pathname, isCurrent]);
 
   const onLinkEnter = () => {
     gsap.to(`.${item.title}`, { paddingBottom: '2.8rem' });
@@ -56,8 +56,6 @@ function NavItem({ item, height }) {
     <StyledNavItem
       $isHome={isHome}
       $height={height}
-      ref={(e) => (item.refId = e)}
-      data-value={item.refId}
       className="link"
       onClick={() => router.push(`${item.slug}`)}
       onMouseEnter={isCurrent ? () => {} : onLinkEnter}
@@ -73,7 +71,7 @@ function NavItem({ item, height }) {
           paddingLeft: '1.333rem',
         }}
       >
-        {item?.title}
+        {item.title}
       </span>
       <div style={{ overflow: 'hidden', height: '100%', width: '100%' }}>
         <img

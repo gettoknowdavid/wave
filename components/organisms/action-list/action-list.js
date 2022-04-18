@@ -2,7 +2,7 @@ import React from 'react';
 import { useStyletron } from 'baseui';
 import { useRouter } from 'next/router';
 import { NAV_LIST } from '../../../lib/nav-list';
-import { StyledActionItem } from '../header/styled-components';
+import ActionItem from '../../molecules/action-item/action-item';
 
 function ActionList() {
   const { pathname, push } = useRouter();
@@ -28,9 +28,7 @@ function ActionList() {
     })}
     >
       {NAV_LIST.filter((item) => item.isAction).map((item) => (
-        <StyledActionItem key={item.id} onClick={() => push(item.slug)}>
-          {item.title}
-        </StyledActionItem>
+        <ActionItem key={item.id} item={item} />
       ))}
     </ul>
   );
