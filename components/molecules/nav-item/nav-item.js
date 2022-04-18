@@ -7,7 +7,7 @@ import { useStyletron } from 'baseui';
 import { useRouter } from 'next/router';
 import { gsap } from 'gsap';
 import PropTypes from 'prop-types';
-import { StyledNavItem } from '../../organisms/header/styled-components';
+import { StyledNavItem } from './styled-components';
 
 function NavItem({ item, height }) {
   const [, theme] = useStyletron();
@@ -98,3 +98,5 @@ NavItem.propTypes = {
   item: PropTypes.object.isRequired,
   height: PropTypes.string.isRequired,
 };
+
+export default NavItem;
