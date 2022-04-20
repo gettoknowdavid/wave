@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.5.10",
     "baseui": "^11.0.0",
+    "deepmerge": "^4.2.2",
     "gsap": "^3.10.3",
+    "lodash": "^4.17.21",
     "next": "12.1.5",
     "prop-types": "^15.8.1",
     "react": "18.0.0",

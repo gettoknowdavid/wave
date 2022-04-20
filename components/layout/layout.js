@@ -8,7 +8,12 @@ function Layout({ seo, children }) {
     <>
       <SEO seo={seo} />
       <Header />
-      <main style={{ maxWidth: '1440px', margin: '0px auto', minHeight: '100vh' }}>
+      <main style={{
+        maxWidth: '1440px',
+        margin: '0 auto',
+        overflowX: 'hidden',
+      }}
+      >
         {children}
       </main>
     </>

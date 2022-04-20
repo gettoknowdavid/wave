@@ -45,63 +45,63 @@ class MyDocument extends Document {
             href="/fonts/Poppins-Black.woff2"
             as="font"
             type="font/woff2"
-            crossOrigin=""
+            crossOrigin="anonymous"
           />
           <link
             rel="preload"
             href="/fonts/Poppins-Bold.woff2"
             as="font"
             type="font/woff2"
-            crossOrigin=""
+            crossOrigin="anonymous"
           />
           <link
             rel="preload"
             href="/fonts/Poppins-ExtraBold.woff2"
             as="font"
             type="font/woff2"
-            crossOrigin=""
+            crossOrigin="anonymous"
           />
           <link
             rel="preload"
             href="/fonts/Poppins-ExtraLight.woff2"
             as="font"
             type="font/woff2"
-            crossOrigin=""
+            crossOrigin="anonymous"
           />
           <link
             rel="preload"
             href="/fonts/Poppins-Italic.woff2"
             as="font"
             type="font/woff2"
-            crossOrigin=""
+            crossOrigin="anonymous"
           />
           <link
             rel="preload"
             href="/fonts/Poppins-Light.woff2"
             as="font"
             type="font/woff2"
-            crossOrigin=""
+            crossOrigin="anonymous"
           />
           <link
             rel="preload"
             href="/fonts/Poppins-Medium.woff2"
             as="font"
             type="font/woff2"
-            crossOrigin=""
+            crossOrigin="anonymous"
           />
           <link
             rel="preload"
             href="/fonts/Poppins-Regular.woff2"
             as="font"
             type="font/woff2"
-            crossOrigin=""
+            crossOrigin="anonymous"
           />
           <link
             rel="preload"
             href="/fonts/Poppins-SemiBold.woff2"
             as="font"
             type="font/woff2"
-            crossOrigin=""
+            crossOrigin="anonymous"
           />
         </Head>
         <body>

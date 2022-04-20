@@ -6,6 +6,9 @@ export const StyledHeader = styled('header', ({
   width: '100%',
   position: 'sticky',
   top: 0,
+  zIndex: 100,
+  maxWidth: '1440px',
+  margin: '0px auto',
 }));
 
 export const StyledHeaderList = styled('ul', ({ $theme }) => ({
