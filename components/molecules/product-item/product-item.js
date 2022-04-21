@@ -1,21 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useStyletron } from 'baseui';
+import { gsap } from 'gsap';
 import currency from '../../../utils/currency';
 
 function ProductItem({ product }) {
   const [css, theme] = useStyletron();
+
+  const imageRef = React.useRef();
+
+  React.useEffect(() => {
+    gsap.fromTo(
+      '.image',
+      { filter: 'blur(100px)', duration: 1 },
+      { filter: 'blur(0px)', duration: 1.2 },
+    );
+  }, []);
+
   return (
     <div className={css({ position: 'relative', height: 'calc(100vh - 20rem)' })}>
       <img
+        ref={imageRef}
+        className="image"
         src={`http://localhost:1337${product.attributes.image.data.attributes.url}`}
         alt={product.attributes.image.data.attributes.alternativeText}
-        className={css({
+        style={{
           height: '100%',
           width: '100%',
           display: 'block',
           objectFit: 'fill',
-        })}
+        }}
       />
       <div className={css({
         position: 'absolute',
@@ -45,7 +59,7 @@ function ProductItem({ product }) {
           fontWeight: 600,
           lineHeight: 1,
           color: theme.colors.mono500,
-          textDecoration: 'line-through',
+          textDecorationLine: 'line-through',
           textDecorationThickness: '2px',
           textDecorationColor: theme.colors.mono600,
         })}
