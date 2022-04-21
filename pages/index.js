@@ -20,7 +20,7 @@ function Home({ products }) {
           borderRightWidth: '0.208rem',
           width: $theme.sizing.scale3200,
           flexGrow: 0,
-          height: 'calc(100vh - 22rem)',
+          height: 'calc(100vh - 20rem)',
         }),
       },
     },
@@ -28,11 +28,11 @@ function Home({ products }) {
 
   const itemProps = {
     backgroundColor: 'mono100',
-    overrides: { Block: { style: ({ height: 'calc(100vh - 22rem)' }) } },
+    overrides: { Block: { style: ({ height: 'calc(100vh - 20rem)' }) } },
   };
 
   return (
-    <div className={css({ maxWidth: '1440px', height: 'calc(100vh - 22rem)', overflow: 'hidden' })}>
+    <div className={css({ maxWidth: '1440px', height: 'calc(100vh - 20rem)', overflow: 'hidden' })}>
       {/* <Slider products={products} /> */}
       <div className={css({ height: '100%' })}>
         <FlexGrid flexGridColumnCount={2}>

@@ -6,18 +6,17 @@ import currency from '../../../utils/currency';
 function ProductItem({ product }) {
   const [css, theme] = useStyletron();
   return (
-    <div className={css({ position: 'relative' })}>
-      <div>
-        <img
-          src={`http://localhost:1337${product.attributes.image.data.attributes.url}`}
-          alt={product.attributes.image.data.attributes.alternativeText}
-          className={css({
-            height: 'calc(100vh - 22rem)',
-            width: '100%',
-            objectFit: 'contain',
-          })}
-        />
-      </div>
+    <div className={css({ position: 'relative', height: 'calc(100vh - 20rem)' })}>
+      <img
+        src={`http://localhost:1337${product.attributes.image.data.attributes.url}`}
+        alt={product.attributes.image.data.attributes.alternativeText}
+        className={css({
+          height: '100%',
+          width: '100%',
+          display: 'block',
+          objectFit: 'fill',
+        })}
+      />
       <div className={css({
         position: 'absolute',
         zIndex: 3,

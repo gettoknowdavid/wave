@@ -16,7 +16,7 @@ function NavItem({ item, height }) {
   let imageRf = React.useRef();
 
   React.useEffect(() => {
-    gsap.set(imageRf, { opacity: 0, display: 'none', scale: 1.1 });
+    gsap.set(imageRf, { opacity: 0, display: 'none', scale: 1 });
 
     if (isCurrent) {
       gsap.to(`.${item.title}`, { paddingBottom: '2.8rem', color: theme.colors.mono600 });
@@ -34,7 +34,7 @@ function NavItem({ item, height }) {
           filter: 'blur(4px)', opacity: 0, display: '', scale: 1.5, x: 200,
         },
         {
-          filter: 'blur(0px)', opacity: 1, display: 'block', scale: 1.1, x: 0,
+          filter: 'blur(0px)', opacity: 1, display: 'block', scale: 1, x: 0,
         },
       );
     }
@@ -44,7 +44,7 @@ function NavItem({ item, height }) {
     gsap.to(`.${item.title}`, { paddingBottom: '1.4rem' });
     if (isHome) {
       gsap.to(imageRf, {
-        filter: 'blur(10px)', opacity: 0, display: '', scale: 1.1, x: 0,
+        filter: 'blur(10px)', opacity: 0, display: '', scale: 1, x: 0,
       });
     }
   };
@@ -79,9 +79,9 @@ function NavItem({ item, height }) {
           style={{
             width: '100%',
             height: '100%',
-            objectFit: 'cover',
+            objectFit: 'contain',
             overflow: 'hidden',
-            objectPosition: 'center',
+            objectPosition: 'right',
           }}
         />
       </div>

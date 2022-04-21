@@ -15,7 +15,7 @@ function Header() {
 
   React.useEffect(() => {
     gsap.to(nl.current.children, {
-      height: isHome ? '22rem' : '8.333rem',
+      height: isHome ? '20rem' : '8.333rem',
       transformOrigin: 'top',
       duration: 0.5,
       stagger: { each: 0.2, ease: 'sine.inOut', yoyo: true },

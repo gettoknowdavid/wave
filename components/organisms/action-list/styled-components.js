@@ -3,7 +3,7 @@ import { styled } from 'baseui';
 export const StyledActionList = styled('ul', ({ $theme, $isHome }) => ({
   margin: 0,
   padding: 0,
-  maxWidth: '40vw',
+  maxWidth: '35vw',
   width: '100%',
   display: 'flex',
   alignItems: 'flex-start',
