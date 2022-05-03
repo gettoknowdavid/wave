@@ -16,7 +16,7 @@ function NavItem({ item, height }) {
   let imageRf = React.useRef();
 
   React.useEffect(() => {
-    gsap.set(imageRf, { opacity: 0, display: 'none', scale: 1 });
+    gsap.set(imageRf, { display: 'none' });
 
     if (isCurrent) {
       gsap.to(`.${item.title}`, { paddingBottom: '2.8rem', color: theme.colors.mono600 });
@@ -82,6 +82,7 @@ function NavItem({ item, height }) {
             objectFit: 'contain',
             overflow: 'hidden',
             objectPosition: 'right',
+            opacity: 0,
           }}
         />
       </div>
