@@ -120,7 +120,7 @@ Home.getLayout = function getLayout(page) {
   );
 };
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   const apollo = initializeApollo();
   const { data } = await apollo.query({
     query: gql`
@@ -150,7 +150,7 @@ export async function getStaticProps() {
   return {
     props: { products: data.products.data },
   };
-}
+};
 
 Home.propTypes = {
   products: PropTypes.arrayOf(

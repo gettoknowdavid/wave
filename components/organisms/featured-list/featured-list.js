@@ -4,7 +4,7 @@ import { FlexGrid, FlexGridItem } from 'baseui/flex-grid';
 import { gsap } from 'gsap';
 import ProductItem from '../../molecules/product-item/product-item';
 
-function FeaturedList({ products }) {
+function FeaturedList({ products, isSliced }) {
   const productListRef = React.useRef();
 
   React.useEffect(() => {
@@ -33,18 +33,20 @@ function FeaturedList({ products }) {
           borderRightWidth: '0.208rem',
           borderRightStyle: 'solid',
           borderRightColor: $theme.colors.mono400,
-          // borderLeftStyle: 'solid',
-          // borderLeftColor: $theme.colors.mono400,
-          // borderLeftWidth: '0.208rem',
+          borderBottomStyle: 'solid',
+          borderBottomColor: $theme.colors.mono400,
+          borderBottomWidth: '0.208rem',
           flexGrow: 0,
         }),
       },
     },
   };
 
+  const productList = isSliced ? products.slice(0, 3) : products;
+
   return (
     <FlexGrid flexGridColumnCount={3} ref={productListRef}>
-      {products.slice(0, 3).map((product) => (
+      {productList.map((product) => (
         <FlexGridItem key={product.id} {...productItemProps}>
           <ProductItem product={product} />
         </FlexGridItem>
@@ -54,6 +56,7 @@ function FeaturedList({ products }) {
 }
 
 FeaturedList.propTypes = {
+  isSliced: PropTypes.bool,
   products: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -72,6 +75,10 @@ FeaturedList.propTypes = {
       }),
     }),
   ).isRequired,
+};
+
+FeaturedList.defaultProps = {
+  isSliced: true,
 };
 
 export default FeaturedList;
